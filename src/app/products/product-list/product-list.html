@@ -1,0 +1,7 @@
+<h1 class="text-center my-4">OUR PRODUCTS</h1>
+
+<div class="row">
+  @for (p of data; track p.id) {
+  <app-product-card [p]="p" class="col-lg-3 col-md-4 col-6 p-3 d-flex" />
+  }
+</div>

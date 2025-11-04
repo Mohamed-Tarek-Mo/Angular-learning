@@ -1,0 +1,32 @@
+<div class="card">
+  <img
+    [src]="p().thumbnail"
+    class="card-img-top"
+    [alt]="p().title"
+    (mouseover)="view[p().id] = true"
+    (mouseout)="view[p().id] = false"
+    appShadow
+  />
+  <div class="card-body d-flex flex-column">
+    <a
+      class="card-title text-decoration-none fw-bolder fs-5"
+      [routerLink]="['/products/', p().id]"
+      >{{ p().title }}</a
+    >
+    @if (view[p().id]) {
+    <h6 class="card-text pb-2">
+      Rating: <span class="text-warning">{{ p().rating }}</span>
+    </h6>
+    <h6 class="card-text pb-2">
+      Only <span class="text-info">{{ p().stock }}</span> items available!
+    </h6>
+    }
+    <p class="card-text">{{ p().description | shortDesc }}</p>
+    <div class="row mt-auto justify-content-between px-2">
+      <h5 class="card-text pb-2 text-center">Only for {{ p().price | currency }}</h5>
+
+      <button class="btn btn-primary col-5" (click)="addToCart(p().id)">Add to cart</button>
+      <button class="btn btn-secondary col-6" (click)="addToFav(p().id)">Add to favorite</button>
+    </div>
+  </div>
+</div>
