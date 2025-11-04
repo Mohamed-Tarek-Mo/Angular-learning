@@ -5,6 +5,7 @@ import { FavoriteProduct } from './products/favorite-product/favorite-product';
 import { NotFound } from './shared/not-found/not-found';
 import { ProdDetails } from './products/prod-details/prod-details';
 import { authGuardGuard } from './auth/auth-guard-guard';
+import { Register } from './auth/register/register';
 
 export const routes: Routes = [
   {
@@ -32,6 +33,10 @@ export const routes: Routes = [
   {
     path: 'login',
     loadComponent: () => import('./auth/login/login').then((m) => m.Login),
+  },
+  {
+    path: 'register',
+    component: Register,
   },
 
   {

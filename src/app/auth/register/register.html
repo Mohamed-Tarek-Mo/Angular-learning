@@ -1,0 +1,57 @@
+<form
+  class="row col-lg-6 col-11 p-5 mx-auto border rounded shadow bg-light my-5"
+  [formGroup]="userForm"
+>
+  <h2 class="text-center my-4 fw-bold fs-1">Registration</h2>
+  <div class="my-3 col-12 justify-content-between">
+    <label class="col-3">First-Name:</label>
+    <input type="text" class="col-8" formControlName="firstName" />
+  </div>
+  <p
+    class="alert alert-warning mb-3 text-center p-2"
+    [hidden]="firstName?.valid || firstName?.untouched"
+  >
+    @if( firstName?.errors?.["required"]) { First name is required} @else if (
+    firstName?.errors?.['minlength'] ){ First name must be at least
+    {{ firstName?.errors?.['minlength'].requiredLength || 1 }} characters. } @else if (
+    firstName?.errors?.['maxlength'] ){ First name cannot exceed
+    {{ firstName?.errors?.["maxlength"].requiredLength }} characters. }
+  </p>
+  <div class="my-3 col-12">
+    <label class="col-3">Last-Name:</label>
+    <input type="text" formControlName="lastName" class="col-8" />
+  </div>
+  <p
+    class="alert alert-warning mb-3 text-center p-2"
+    [hidden]="lastName?.valid || lastName?.untouched"
+  >
+    Last name is required
+  </p>
+  <div class="my-3 col-12">
+    <label class="col-3">Image-Url:</label>
+    <input type="text" formControlName="imageUrl" class="col-8" />
+  </div>
+  <p
+    class="alert alert-warning mb-3 text-center p-2"
+    [hidden]="imageUrl?.valid || imageUrl?.untouched"
+  >
+    Image Url is required
+  </p>
+  <div class="my-3 col-12">
+    <label class="col-3">Email:</label>
+    <input type="email" formControlName="email" class="col-8" />
+  </div>
+  <p class="alert alert-warning mb-3 text-center p-2" [hidden]="email?.valid || email?.untouched">
+    @if( email?.errors?.["required"]) { Email is required} @else if (email?.errors?.["email"]) {
+    This field must be in email format }
+  </p>
+  <div class="d-flex justify-content-between col-12 mt-4">
+    <input
+      type="button"
+      value="Save"
+      class="col-5 p-2 mx-auto btn btn-primary"
+      (click)="addUser()"
+      [disabled]="userForm.invalid"
+    />
+  </div>
+</form>

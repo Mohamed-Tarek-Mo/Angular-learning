@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
+<nav class="navbar navbar-expand-lg bg-body-tertiary pb-lg-0 pb-4">
   <div class="container">
     <a class="navbar-brand" routerLink="/home">Learning Angular</a>
     <button
@@ -27,7 +27,18 @@
         </li>
       </ul>
 
-      <a class="btn btn-primary" [routerLink]="['login']" routerLinkActive="active">Login</a>
+      <a
+        class="alert alert-primary p-2 px-3 text-decoration-none"
+        [routerLink]="['login']"
+        routerLinkActive="active fw-semibold"
+        >Login</a
+      >
+      <a
+        class="alert alert-secondary p-2 px-3 ms-2 text-decoration-none"
+        [routerLink]="['register']"
+        routerLinkActive="active fw-semibold"
+        >Register</a
+      >
     </div>
   </div>
 </nav>

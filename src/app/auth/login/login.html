@@ -1,1 +1,57 @@
-<p>login works!</p>
+<form
+  #loginForm="ngForm"
+  (ngSubmit)="login(loginForm.value)"
+  class="row col-lg-6 col-11 p-5 mx-auto border rounded shadow bg-light my-5"
+>
+  <h2 class="text-center my-4 fw-bold fs-1">Login</h2>
+  <div class="my-3 col-12 justify-content-between">
+    <label class="col-3">username:</label>
+    <input
+      type="text"
+      class="col-8"
+      ngModel
+      required
+      minlength="3"
+      name="username"
+      #username="ngModel"
+      [(ngModel)]="userdata.username"
+    />
+  </div>
+  <p
+    class="alert alert-warning text-center mb-3 p-2"
+    [hidden]="username.valid || username.pristine"
+  >
+    User name should be at least {{ username?.errors?.["minlength"].requiredLength }} characters.
+  </p>
+  <div class="my-3 col-12">
+    <label class="col-3">password:</label>
+    <input
+      type="password"
+      ngModel
+      name="password"
+      required
+      minlength="8"
+      #password="ngModel"
+      [(ngModel)]="userdata.password"
+      class="col-8"
+    />
+  </div>
+  <p
+    class="alert alert-warning text-center mb-3 p-2"
+    [hidden]="password.valid || password.pristine"
+  >
+    Password length should be at least {{ password?.errors?.["minlength"].requiredLength }}
+  </p>
+  <div class="d-flex justify-content-between col-12 mt-4">
+    <input
+      type="button"
+      value="login"
+      class="col-5 p-2 mx-auto btn btn-primary"
+      (click)="login(loginForm.value)"
+      [disabled]="!password.valid || !username.valid"
+    />
+  </div>
+</form>
+<p class="alert alert-danger my-2 text-center fw-semibold" [hidden]="isAuth">
+  Username or Password is incorrect
+</p>
