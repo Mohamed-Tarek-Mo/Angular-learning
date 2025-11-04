@@ -19,8 +19,16 @@ export class Register {
     email: new FormControl('', Validators.email),
   });
 
-  addUser() {
-    console.log(this.userForm.value);
+  savedUsers: any[] = [
+    {
+      firstName: 'Mohamed',
+      lastName: 'Tarek',
+      imageUrl: 'dummy url',
+      email: 'example@example.com',
+    },
+  ];
+  addUser(): void {
+    this.savedUsers.push(this.userForm.value);
   }
 
   get firstName() {

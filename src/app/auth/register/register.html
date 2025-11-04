@@ -55,3 +55,26 @@
     />
   </div>
 </form>
+<div class="">
+  <h2 class="text-center p-3 bg-black text-white mt-4">Saved Users</h2>
+  <table class="table table-bordered table-striped">
+    <thead>
+      <tr>
+        <th scope="col">First Name</th>
+        <th scope="col">Last Name</th>
+        <th scope="col">Email</th>
+        <th scope="col">Image Url</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (user of savedUsers; track $index) {
+      <tr>
+        <td scope="row">{{ user.firstName }}</td>
+        <td>{{ user.lastName }}</td>
+        <td>{{ user.email }}</td>
+        <td>{{ user.imageUrl }}</td>
+      </tr>
+      }
+    </tbody>
+  </table>
+</div>

@@ -1,8 +1,10 @@
-<nav class="navbar navbar-expand-lg bg-body-tertiary pb-lg-0 pb-4">
+<nav
+  class="navbar navbar-expand-lg bg-body-tertiary pb-lg-0 pb-4 rounded-5 shadow-sm m-lg-5 m-3 mt-3"
+>
   <div class="container">
     <a class="navbar-brand" routerLink="/home">Learning Angular</a>
     <button
-      class="navbar-toggler"
+      class="navbar-toggler me-3"
       type="button"
       data-bs-toggle="collapse"
       data-bs-target="#navbarSupportedContent"
@@ -34,7 +36,7 @@
         >Login</a
       >
       <a
-        class="alert alert-secondary p-2 px-3 ms-2 text-decoration-none"
+        class="alert alert-secondary p-2 px-3 ms-2 me-3 text-decoration-none"
         [routerLink]="['register']"
         routerLinkActive="active fw-semibold"
         >Register</a
